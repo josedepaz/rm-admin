@@ -1,0 +1,19 @@
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="mdl-card__title">
+            <h3 class="mdl-card__title-text">¿Qué rally deseas calificar?</h3>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <ul class="mdl-list ">
+                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="rally in scoresCtrl.rallies">
+                    <span class="mdl-list__item-primary-content">
+                    <a href="#/scores/rally/{{rally.id}}/questions/">{{rally.name}}</a>
+                <span class="mdl-list__item-sub-title">
+                    {{rally.description}}
+                </span>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

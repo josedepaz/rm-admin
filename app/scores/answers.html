@@ -1,0 +1,52 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+            Calificación
+            <small>Respuestas</small>
+          </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard"></i> <a href="/rm-admin/#/scores/">Calificación</a></li>
+        <li> <a href="/rm-admin/#/scores/">Rallies</a></li>
+        <li> <a href="/rm-admin/#/scores/rally/{{rally.id}}">Preguntas</a></li>
+        <li class="active"> Respuestas</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <div ng-bind-html="answersCtrl.questionInfo.plainText">
+                
+            </div>
+            <div class="box-tools pull-right">
+                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <ul class="products-list product-list-in-box">
+                <li class="item" ng-repeat="answer in answersCtrl.answers">
+                    <div class="product-info">
+                        <span class="product-title">
+                          {{answer.group.user}} - {{answer.group.country.name}}:
+                        </span>
+                        <span class="pull-right"><input type="number" class="form-control" placeholder="5" ng-model="answer.points"/><a href="" class="btn btn-default" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar Nota</a></span>
+                        <span ng-show="answer.answer.indexOf('URL:') !== 0" class="product-description"> {{answer.answer}}</span>
+                        <div ng-show="answer.answer.indexOf('URL:') === 0">
+                            <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
+                                <span class="glyphicon glyphicon-download-alt"></span> Descargar
+                            </a>
+                        </div>
+                        <small>Recibida: {{answer.creationDate | date: 'dd/MM/yyyy'}}</small>
+                    </div>
+                </li>
+                <!-- /.item -->
+            </ul>
+        </div>
+    </div>
+    <!-- Your Page Content Here -->
+
+</section>
+<!-- /.content -->
