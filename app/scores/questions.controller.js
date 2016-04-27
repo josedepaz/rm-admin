@@ -15,8 +15,8 @@
         activate();
         
         function activate() {
-            //$http.get('/rm-server-web/rs/rallies/' + self.rallyId + '/countries').then(getCountriesDone, getCountriesFail);
-            $http.get('scores/questions.json').then(getCountriesDone, getCountriesFail);
+            $http.get('/rm-server-web/rs/rallies/' + self.rallyId + '/countries').then(getCountriesDone, getCountriesFail);
+            //$http.get('scores/questions.json').then(getCountriesDone, getCountriesFail);
         }
         
         function getCountriesDone(result) {

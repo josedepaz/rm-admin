@@ -15,8 +15,8 @@
         
         
         function activate(){
-            //$http.get('/rm-server-web/rs/rallies').then(getRalliesDone, getRalliesFail);
-            $http.get('/scores/rallies.json').then(getRalliesDone, getRalliesFail);
+            $http.get('/rm-server-web/rs/rallies').then(getRalliesDone, getRalliesFail);
+            //$http.get('/scores/rallies.json').then(getRalliesDone, getRalliesFail);
         }
         
         function getRalliesDone(result) {
