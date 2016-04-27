@@ -5,7 +5,7 @@
         </div>
         <div class="mdl-card__supporting-text">
             <ul class="mdl-list ">
-                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="rally in scoresCtrl.rallies">
+                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers">
                     <span class="mdl-list__item-primary-content">
                     <label>{{answer.group.user}} - {{answer.group.country.name}}:</label>
                 <span ng-show="answer.answer.indexOf('URL:') !== 0" class="product-description"> {{answer.answer}}</span>
