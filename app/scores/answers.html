@@ -1,16 +1,25 @@
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-            Calificación
-            <small>Respuestas</small>
-          </h1>
-    <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i> <a href="/rm-admin/#/scores/">Calificación</a></li>
-        <li> <a href="/rm-admin/#/scores/">Rallies</a></li>
-        <li> <a href="/rm-admin/#/scores/rally/{{rally.id}}">Preguntas</a></li>
-        <li class="active"> Respuestas</li>
-    </ol>
-</section>
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="mdl-card__title">
+            <h3 class="mdl-card__title-text" ng-bind="answersCtrl.questionInfo.name"></h3>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <ul class="mdl-list ">
+                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="rally in scoresCtrl.rallies">
+                    <span class="mdl-list__item-primary-content">
+                    <label>{{answer.group.user}} - {{answer.group.country.name}}:</label>
+                <span ng-show="answer.answer.indexOf('URL:') !== 0" class="product-description"> {{answer.answer}}</span>
+                    <div ng-show="answer.answer.indexOf('URL:') === 0">
+                        <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
+                            <span class="glyphicon glyphicon-download-alt"></span> Descargar
+                        </a>
+                    </div>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <!-- Main content -->
 <section class="content">
@@ -18,7 +27,7 @@
     <div class="box box-primary">
         <div class="box-header with-border">
             <div ng-bind-html="answersCtrl.questionInfo.plainText">
-                
+
             </div>
             <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>

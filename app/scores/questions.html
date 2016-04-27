@@ -1,62 +1,33 @@
 <div class="mdl-grid demo-content">
     <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+        <div class="mdl-textfield mdl-js-textfield">
+            <select ng-model="search" class="mdl-textfield__input" id="countries">
+                <option value="">Todas las preguntas</option>
+                <option value="brasil">Preguntas de Brasil</option>
+                <option value="guatemala">Preguntas de Guatemala</option>
+                <option value="panama">Preguntas de Panama</option>
+                <option value="peru">Preguntas de Peru</option>
+            </select>
+            
+        </div>
+    </div>
+
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" ng-repeat="rallyCountry in questionsCtrl.countries | filter: {country: {name: search}}">
         <div class="mdl-card__title">
-            <h3 class="mdl-card__title-text">Selecciona una pregunta para ver sus respuestas</h3>
+            <h3 class="mdl-card__title-text">Preguntas de {{rallyCountry.country.name}}</h3>
         </div>
         <div class="mdl-card__supporting-text">
             <ul class="mdl-list ">
-                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="question in rallyCountry.questions">
+                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="question in rallyCountry.questions"
+                    ng-if="question.type === 'question'">
                     <span class="mdl-list__item-primary-content">
-                    <a href="#/scores/rally/{{rally.id}}/questions/">{{question.name}}</a>
-                <span class="mdl-list__item-sub-title">
-                    {{question.plainText}}
+                    <label>{{question.name}}</label>
+                <span class="mdl-list__item-sub-title" ng-bind-html="question.plainText">
                 </span>
-                <a href="/rm-admin/#/scores/rally/{{questionsCtrl.rallyId}}/questions/{{question.id}}/answers" class="btn btn-warning btn-lg">Ver Respuestas</a>
+                    <a href="#/scores/rally/{{questionsCtrl.rallyId}}/questions/{{question.id}}/answers" class="btn btn-warning btn-lg">Ver Respuestas</a>
                     </span>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-
-
-<!-- Content Header (Page header) -->
-<section class="content-header">
-    <h1>
-            Calificación
-            <small>Preguntas</small>
-          </h1>
-    <ol class="breadcrumb">
-        <li><i class="fa fa-dashboard"></i> <a href="/rm-admin/#/scores/">Calificación</a></li>
-        <li> <a href="/rm-admin/#/scores/">Rallies</a></li>
-        <li class="active"> Preguntas</li>
-    </ol>
-</section>
-
-<!-- Main content -->
-<section class="content">
-
-    <div class="box box-primary" ng-repeat="rallyCountry in questionsCtrl.countries">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{rallyCountry.country.name}}</h3>
-            <div class="box-tools pull-right">
-                <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            </div>
-        </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-            <ul class="products-list product-list-in-box">
-                <li class="item" ng-repeat="question in rallyCountry.questions" ng-if="question.type === 'question'">
-                    <div class="product-info">
-                        <p ng-bind-html="question.plainText"><span class="label label-success pull-right"></span></p>
-                        <a href="/rm-admin/#/scores/rally/{{questionsCtrl.rallyId}}/questions/{{question.id}}/answers" class="btn btn-warning btn-lg">Ver Respuestas</a> 
-                    </div>
-                </li>
-                <!-- /.item -->
-            </ul>
-        </div>
-    </div>
-    <!-- Your Page Content Here -->
-
-</section>
-<!-- /.content -->
