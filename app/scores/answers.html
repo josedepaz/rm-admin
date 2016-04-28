@@ -18,16 +18,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="mdl-list__item-secondary-content">
-                        <div class="mdl-list__item-text-body">
-                            <form action="#">
-                                <div class="tmdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                    <input id="points_{{$index}}" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" ng-model="answer.points">
-                                    <label class="mdl-textfield__label" for="points_{{$index}}">Nota...</label>
-                                </div>
-                            </form>
-                            <button class="mdl-button mdl-js-button mdl-button--primary" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar Nota</button>
-                        </div>
+                    <div class="mdl-list__item-secundary-content">
+                        <small>
+                        <form action="#">
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                <input class="mdl-textfield__input" id="points{{$index}}" type="text" pattern="-?[0-9]*(\.[0-9]+)?" ng-model="answer.points">
+                                <label class="mdl-textfield__label" for="points{{$index}}">Nota...</label>
+                            </div>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar Nota</button>
+                        </form>
+                        </small>
                     </div>
                 </li>
             </ul>
