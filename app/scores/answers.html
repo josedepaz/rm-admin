@@ -5,18 +5,30 @@
         </div>
         <div class="mdl-card__supporting-text">
             <ul class="mdl-list ">
-                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers">
-                    <span class="mdl-list__item-primary-content">
-                        <label>{{answer.group.user}} - {{answer.group.country.name}}:</label>
-                        <small>Recibida: {{answer.creationDate | date: 'dd/MM/yyyy'}}</small>
-                        <span ng-show="answer.answer.indexOf('URL:') !== 0" class="product-description"> {{answer.answer}}</span>
-                    <div ng-show="answer.answer.indexOf('URL:') === 0">
-                        <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
-                            <span class="glyphicon glyphicon-download-alt"></span> Descargar
-                        </a>
+                <li class="mdl-list__item mdl-list__item--three-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers">
+                    <div class="mdl-list__item-primary-content">
+                        <span>{{answer.group.user}} - {{answer.group.country.name}}:</span>
+                        <div class="mdl-list__item-text-body">
+                            <small>Recibida: {{answer.creationDate | date: 'dd/MM/yyyy'}}</small>
+                            <span ng-show="answer.answer.indexOf('URL:') !== 0" class=""> {{answer.answer}}</span>
+                            <div ng-show="answer.answer.indexOf('URL:') === 0">
+                                <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
+                                    <span class="glyphicon glyphicon-download-alt"></span> Descargar
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <span class="pull-right"><input type="number" class="form-control" placeholder="5" ng-model="answer.points"/><a href="" class="btn btn-default" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar Nota</a></span>
-                    </span>
+                    <div class="mdl-list__item-secondary-content">
+                        <div class="mdl-list__item-text-body">
+                            <form action="#">
+                                <div class="tmdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input id="points_{{$index}}" class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" ng-model="answer.points">
+                                    <label class="mdl-textfield__label" for="points_{{$index}}">Nota...</label>
+                                </div>
+                            </form>
+                            <button class="mdl-button mdl-js-button mdl-button--primary" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar Nota</button>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
