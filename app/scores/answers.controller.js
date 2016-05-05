@@ -1,67 +1,68 @@
-(function(){
+(function () {
     'use strict';
-    
+
     angular.module('app')
         .controller('answersController', answersController);
-    
-    answersController.$inject = ['$http', '$routeParams'];
-    
-    function answersController($http, $routeParams){
+
+    answersController.$inject = ['$http', '$routeParams', '$scope'];
+
+    function answersController($http, $routeParams, $scope) {
         var self = this;
-        
+
         self.questionInfo = {};
         self.answers = [];
-        
+
         self.savePoints = savePoints;
-        
+
         activate();
-        
-        function savePoints(answerId, answer){
+
+        function savePoints(answerId, answer) {
             $http.post('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId + '/answers/' + answerId, answer)
-            .then(savePointsDone, savePointsFail);
+                .then(savePointsDone, savePointsFail);
         }
-        
-        function savePointsDone(result){
+
+        function savePointsDone(result) {
             console.log(result);
             alert("Puntos guardados exitosamente");
         }
-        
-        function savePointsFail(error){
+
+        function savePointsFail(error) {
             console.error(error);
         }
-        
-        function activate(){
+
+        function activate() {
             $http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId)
                 .then(getQuestionDone, getQuestionFail);
-            
+
             //$http.get('scores/question.json')
             //    .then(getQuestionDone, getQuestionFail);
-            
+
             $http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId + '/answers')
                 .then(getAnswersDone, getAnswersFail);
-                
+
             //$http.get('scores/answers.json')
             //    .then(getAnswersDone, getAnswersFail);
         }
-        
+
         function getQuestionDone(result) {
             console.log(result.data);
             self.questionInfo = result.data;
         }
-        
-        function getQuestionFail(error){
+
+        function getQuestionFail(error) {
             console.log(error);
         }
-        
+
         function getAnswersDone(result) {
             self.answers = result.data;
-            setTimeout(function(){
-                componentHandler.upgradeAllRegistered();
-            }, 2000);
         }
-        
+
         function getAnswersFail(error) {
             console.log(error);
         }
+
+        $scope.$on('$viewContentLoaded', function () {
+            componentHandler.upgradeAllRegistered();
+        });
     }
 })();
