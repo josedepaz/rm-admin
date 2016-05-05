@@ -55,6 +55,7 @@
         
         function getAnswersDone(result) {
             self.answers = result.data;
+            componentHandler.upgradeAllRegistered();
         }
         
         function getAnswersFail(error) {
