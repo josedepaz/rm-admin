@@ -31,17 +31,17 @@
         }
         
         function activate(){
-            //$http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId)
-              //  .then(getQuestionDone, getQuestionFail);
-            
-            $http.get('scores/question.json')
+            $http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId)
                 .then(getQuestionDone, getQuestionFail);
             
-            //$http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId + '/answers')
-            //    .then(getAnswersDone, getAnswersFail);
-                
-            $http.get('scores/answers.json')
+            //$http.get('scores/question.json')
+            //    .then(getQuestionDone, getQuestionFail);
+            
+            $http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId + '/answers')
                 .then(getAnswersDone, getAnswersFail);
+                
+            //$http.get('scores/answers.json')
+            //    .then(getAnswersDone, getAnswersFail);
         }
         
         function getQuestionDone(result) {
