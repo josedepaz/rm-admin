@@ -60,11 +60,5 @@
         function getAnswersFail(error) {
             console.log(error);
         }
-
-        function updateDom() {
-            $timeout(function () {
-                componentHandler.upgradeAllRegistered();
-            });
-        }
     }
 })();

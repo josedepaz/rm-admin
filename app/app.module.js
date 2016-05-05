@@ -39,13 +39,11 @@
     function repeatEnd() {
         return {
             restrict: "A",
-            scope: {
-                scope: { method:'&repeatEnd' }
-            },
             link: function (scope, element, attrs) {
                 if (scope.$last) {
-                    //scope.$eval(attrs.repeatEnd);
-                    scope.repeatEnd();
+                    $timeout(function () {
+                        componentHandler.upgradeAllRegistered();
+                    });
                 }
             }
         };
