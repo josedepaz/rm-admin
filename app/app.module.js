@@ -36,7 +36,9 @@
             });
     }
 
-    function repeatEnd() {
+    repeatEnd.$inject = ['$timeout'];
+
+    function repeatEnd($timeout) {
         return {
             restrict: "A",
             link: function (scope, element, attrs) {
