@@ -2,7 +2,8 @@
     'use strict';
 
     angular.module('app', ['ngRoute', 'ngSanitize'])
-        .config(configuration);
+        .config(configuration)
+        .directive("repeatEnd", repeatEnd);
 
     configuration.$inject = ['$routeProvider'];
 
@@ -33,5 +34,16 @@
                 controller: 'homeController',
                 controllerAs: 'homeCtrl'
             });
+    }
+
+    function repeatEnd() {
+        return {
+            restrict: "A",
+            link: function (scope, element, attrs) {
+                if (scope.$last) {
+                    scope.$eval(attrs.repeatEnd);
+                }
+            }
+        };
     }
 })();
