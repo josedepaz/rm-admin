@@ -61,8 +61,8 @@
             console.log(error);
         }
 
-        $scope.$on('$viewContentLoaded', function () {
+        function updateDom(params) {
             componentHandler.upgradeAllRegistered();
-        });
+        }
     }
 })();
