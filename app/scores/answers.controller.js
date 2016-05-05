@@ -4,9 +4,9 @@
     angular.module('app')
         .controller('answersController', answersController);
 
-    answersController.$inject = ['$http', '$routeParams', '$scope'];
+    answersController.$inject = ['$http', '$routeParams', '$timeout'];
 
-    function answersController($http, $routeParams, $scope) {
+    function answersController($http, $routeParams, $timeout) {
         var self = this;
 
         self.questionInfo = {};
@@ -61,8 +61,10 @@
             console.log(error);
         }
 
-        function updateDom(params) {
-            componentHandler.upgradeAllRegistered();
+        function updateDom() {
+            $timeout(function () {
+                componentHandler.upgradeAllRegistered();
+            });
         }
     }
 })();
