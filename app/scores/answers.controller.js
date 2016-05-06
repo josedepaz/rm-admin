@@ -23,11 +23,11 @@
 
         function savePointsDone(result) {
             console.log(result);
-            alert("Puntos guardados exitosamente");
+            toastr.info("Puntos guardados exitosamente");
         }
 
         function savePointsFail(error) {
-            console.error(error);
+            toastr.error(error);
         }
 
         function activate() {
