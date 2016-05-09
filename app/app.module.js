@@ -24,6 +24,16 @@
                 controller: 'answersController',
                 controllerAs: 'answersCtrl'
             })
+            .when('/rankings/', {
+                templateUrl: 'rankings/rankings.html',
+                controller: 'rankingsController',
+                controllerAs: 'rankingsCtrl'
+            })
+            .when('/rankings/:rallyId', {
+                templateUrl: 'rankings/ranking.html',
+                controller: 'rankingController',
+                controllerAs: 'rankingCtrl'
+            })
             .when('/', {
                 templateUrl: 'home/home.html',
                 controller: 'homeController',
