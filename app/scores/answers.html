@@ -21,17 +21,13 @@
                     <div class="mdl-list__item-secundary-content">
                         <small>
                         <form>
-                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                <!--input class="mdl-textfield__input" id="points{{$index}}" type="text" pattern="-?[0-9]*(\.[0-9]+)?" ng-model="answer.points"-->
+                            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
                                 <select class="mdl-textfield__input" id="points{{$index}}" type="text" pattern="-?[0-9]*(\.[0-9]+)?" ng-model="answer.points">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
+                                    <option ng-repeat="point in answersCtrl.points" ng-bind="point"></option>
                                 </select>
-                                <label class="mdl-textfield__label" for="points{{$index}}">Nota...</label>
-                                <span class="mdl-textfield__error">La nota solo puede encontrarse entre </span>
+                                <label class="mdl-textfield__label" for="points{{$index}}">Punteo...</label>
                             </div>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar Nota</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar</button>
                         </form>
                         </small>
                     </div>
