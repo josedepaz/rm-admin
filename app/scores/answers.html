@@ -22,10 +22,9 @@
                         <small>
                         <form>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
-                                <select class="mdl-textfield__input" id="points{{$index}}" ng-model="answer.points">
-                                    <option ng-repeat="point in answersCtrl.points" ng-bind="point"></option>
-                                </select>
-                                <label class="mdl-textfield__label" for="points{{$index}}">Puntos...</label>
+                                <input class="mdl-textfield__input" id="points{{$index}}" type="number" min="0" max="10" ng-model="answer.points">
+                                <label class="mdl-textfield__label" for="points{{$index}}">Punteo...</label>
+                                <span class="mdl-textfield__error">Punteo inválido!</span>
                             </div>
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar</button>
                         </form>
