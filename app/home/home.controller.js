@@ -2,14 +2,14 @@
     'use strict';
     
     angular.module('app')
-        .controller('homeController', homeController);
+        .controller('HomeController', HomeController);
         
-    homeController.$inject = ['$http'];
+    HomeController.$inject = ['$http'];
         
-    function homeController($http) {
-        var self = this;
+    function HomeController($http) {
+        var vm = this;
         
-        self.rallies = [];
+        vm.rallies = [];
         
         activate();
         
@@ -19,7 +19,7 @@
         }
         
         function getRalliesDone(result) {
-            self.rallies = result.data;
+            vm.rallies = result.data;
         }
         
         function getRalliesFail(error) {

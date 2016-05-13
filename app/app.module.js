@@ -9,6 +9,11 @@
 
     function configuration($routeProvider) {
 	       $routeProvider
+            .when('/config/', {
+                templateUrl: 'config/config-rally.html',
+                controller: 'ConfigRallyController',
+                controllerAs: 'configRallyCtrl'   
+            })
             .when('/scores/', {
                 templateUrl: 'scores/scores.html',
                 controller: 'scoresController',
@@ -36,7 +41,7 @@
             })
             .when('/', {
                 templateUrl: 'home/home.html',
-                controller: 'homeController',
+                controller: 'HomeController',
                 controllerAs: 'homeCtrl'
             })
             .otherwise({
