@@ -20,7 +20,7 @@
         ////////////////
 
         function activate() {
-            updateRallies();
+            //updateRallies();
         }
 
         function updateRallies(s) {
