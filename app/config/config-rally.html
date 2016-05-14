@@ -21,15 +21,17 @@
                 <thead>
                     <tr>
                         <th st-sort="id">ID</th>
-                        <th st-sort="name">Rally</th>
-                        <th st-sort="description">Descripción</th>
+                        <th st-sort="name" class="mdl-data-table__cell--non-numeric md-width">Rally</th>
+                        <th st-sort="description" class="mdl-data-table__cell--non-numeric full-width">Descripción</th>
+                        <th class="mdl-data-table__cell--non-numeric">Opciones</th>
                     </tr>
                 </thead>
                 <tbody ng-show="!configRallyCtrl.isLoading">
                     <tr ng-repeat="rally in configRallyCtrl.rallies">
                         <td>{{rally.id}}</td>
-                        <td class="mdl-data-table__cell--non-numeric md-width">{{rally.name}}</td>
-                        <td class="mdl-data-table__cell--non-numeric full-width">{{rally.description}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{rally.name}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{rally.description}}</td>
+                        <td><button>E</button></td>
                     </tr>
                 </tbody>
                 <tbody ng-show="configRallyCtrl.isLoading">
