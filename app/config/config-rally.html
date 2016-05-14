@@ -17,26 +17,23 @@
 
 
 
-            <table class="table" st-pipe="configRallyCtrl.callServer" st-table="configRallyCtrl.rallies">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width" st-pipe="configRallyCtrl.callServer" st-table="configRallyCtrl.rallies">
                 <thead>
                     <tr>
-                        <th st-sort="id">id</th>
-                        <th st-sort="name">name</th>
-                    </tr>
-                    <tr>
-                        <th><input st-search="id" /></th>
-                        <th><input st-search="name" /></th>
+                        <th st-sort="id">ID</th>
+                        <th st-sort="name">Rally</th>
                     </tr>
                 </thead>
                 <tbody ng-show="!configRallyCtrl.isLoading">
-                    <tr ng-repeat="row in configRallyCtrl.rallies">
-                        <td>{{row.id}}</td>
-                        <td>{{row.name}}</td>
+                    <tr ng-repeat="rally in configRallyCtrl.rallies">
+                        <td>{{rally.id}}</td>
+                        <td class="mdl-data-table__cell--non-numeric md-width">{{rally.name}}</td>
+                        <td class="mdl-data-table__cell--non-numeric full-width">{{rally.description}}</td>
                     </tr>
                 </tbody>
                 <tbody ng-show="configRallyCtrl.isLoading">
                     <tr>
-                        <td colspan="4" class="text-center">Loading ... </td>
+                        <td colspan="4" class="text-center">Cargango ... </td>
                     </tr>
                 </tbody>
                 <tfoot>
