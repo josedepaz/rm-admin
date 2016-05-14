@@ -13,6 +13,8 @@
         vm.newRally = {};
         vm.createRally = createRally;
         vm.callServer = callServer;
+        vm.selected = false;
+        vm.select = select;
 
 
         activate();
@@ -67,5 +69,9 @@
                 vm.isLoading = false;
             });*/
         };
+        
+        function select(){
+            vm.selected = vm.selected? false:true;
+        }
     }
 })();
