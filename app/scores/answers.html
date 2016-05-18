@@ -4,10 +4,7 @@
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Respuestas</h3>
         </div>
-        <a href="" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal__trigger" data-modal="#modal">
-            Ver pregunta
-        </a>
-        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-show="answersCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
@@ -73,8 +70,11 @@
     </div>
 </div>
 
+<a href="" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal__trigger" data-modal="#dialogo">
+            Ver pregunta
+        </a>
 <!-- QUESTION -->
-<div id="modal" class="modal modal__bg">
+<div id="dialogo" class="modal modal__bg">
     <div class="modal__dialog">
         <div class="modal__content">
             <p ng-bind-html="answersCtrl.questionInfo.plainText"></p>
