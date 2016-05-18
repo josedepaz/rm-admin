@@ -1,22 +1,21 @@
 <div class="mdl-grid demo-content">
     <!-- QUESTION -->
-    <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
-        <div class="mdl-card__title">
-            <h3 class="mdl-card__title-text">Pregunta</h3>
-        </div>
-        <div class="mdl-card__supporting-text">
-            <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
+    <div id="modal" class="modal modal__bg">
+        <div class="modal__content">
             <p ng-bind-html="answersCtrl.questionInfo.plainText"></p>
         </div>
     </div>
     <!-- ANSWERS -->
-    <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
+    <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Respuestas</h3>
         </div>
+        <a href="" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored modal__trigger" data-modal="#modal">
+            Ver pregunta
+        </a>
         <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
-            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
                 <thead>
                     <tr>
                         <th>No.</th>
