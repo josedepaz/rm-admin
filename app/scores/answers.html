@@ -1,5 +1,5 @@
 <div class="mdl-grid demo-content">
-     <!-- QUESTION -->
+    <!-- QUESTION -->
     <div class="mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--6-col">
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Pregunta</h3>
@@ -16,22 +16,54 @@
         </div>
         <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
-            <ul class="mdl-list ">
-                <li class="mdl-list__item mdl-list__item--three-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers" repeat-end >
-                    <div class="mdl-list__item-primary-content">
-                        <span>{{answer.group.user}} - {{answer.group.country.name}}:</span>
-                        <div class="mdl-list__item-text-body">
-                            <small>Recibida: {{answer.creationDate | date: 'dd/MM/yyyy'}}</small>
-                            <span ng-show="answer.answer.indexOf('URL:') !== 0" class=""> {{answer.answer}}</span>
-                            <div ng-show="answer.answer.indexOf('URL:') === 0">
-                                <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
-                                    <span class="glyphicon glyphicon-download-alt"></span> Descargar
-                                </a>
-                            </div>
-                        </div>
+            <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th class="mdl-data-table__cell--non-numeric">Grupo</th>
+                        <th class="mdl-data-table__cell--non-numeric">Pais</th>
+                        <th class="mdl-data-table__cell--non-numeric">Respuesta</th>
+                        <th class="mdl-data-table__cell--non-numeric">Punteo</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="answer in answersCtrl.answers" repeat-end>
+                        <td>{{$index}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{answer.group.user}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{answer.group.country.name}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
+                                <span class="glyphicon glyphicon-download-alt"></span> Descargar
+                            </a>
+                        </td>
+                        <td class="mdl-data-table__cell--non-numeric">
+                            <form>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                    <input class="mdl-textfield__input" id="points{{$index}}" type="number" min="0" max="10" ng-model="answer.points">
+                                    <label class="mdl-textfield__label" for="points{{$index}}">Puntos...</label>
+                                    <span class="mdl-textfield__error">Máximo 10 puntos!</span>
+                                </div>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar</button>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!--div class="mdl-list__item-primary-content">
+                <span>{{answer.group.user}} ({{answer.group.country.name}}):</span>
+                <div class="mdl-list__item-text-body">
+                    <small>Recibida: {{answer.creationDate | date: 'dd/MM/yyyy'}}</small>
+                    <span ng-show="answer.answer.indexOf('URL:') !== 0" class=""> {{answer.answer}}</span>
+                    <div ng-show="answer.answer.indexOf('URL:') === 0">
+                        <a ng-repeat="resource in answer.resources" href="{{resource.downloadUrl}}">
+                            <span class="glyphicon glyphicon-download-alt"></span> Descargar
+                        </a>
                     </div>
-                    <div class="mdl-list__item-secundary-content">
-                        <small>
+                </div>
+            </div>
+            <div class="mdl-list__item-secundary-content">
+                <small>
                         <form>
                             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label"> 
                                 <input class="mdl-textfield__input" id="points{{$index}}" type="number" min="0" max="10" ng-model="answer.points">
@@ -41,9 +73,9 @@
                             <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar</button>
                         </form>
                         </small>
-                    </div>
-                </li>
-            </ul>
+            </div>
+            </li>
+            </ul-->
         </div>
-    </div>    
+    </div>
 </div>
