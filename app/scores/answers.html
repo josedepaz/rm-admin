@@ -3,8 +3,8 @@
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Respuestas</h3>
         </div>
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
-            <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
             <ul class="mdl-list ">
                 <li class="mdl-list__item mdl-list__item--three-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers" repeat-end >
                     <div class="mdl-list__item-primary-content">
