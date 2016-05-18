@@ -11,6 +11,8 @@
         
         self.rallies = [];
         
+        self.loading = true;
+        
         activate();
         
         
@@ -21,10 +23,12 @@
         
         function getRalliesDone(result) {
             self.rallies = result.data;
+            self.loading = false;
         }
         
         function getRalliesFail(error) {
             console.log(error);
+            self.loading = false;
         }
     }
 })();
