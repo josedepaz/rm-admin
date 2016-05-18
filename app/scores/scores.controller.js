@@ -11,12 +11,11 @@
         
         self.rallies = [];
         
-        self.loading = true;
-        
         activate();
         
         
         function activate(){
+            self.loading = true;
             $http.get('/rm-server-web/rs/rallies').then(getRalliesDone, getRalliesFail);
             //$http.get('/scores/rallies.json').then(getRalliesDone, getRalliesFail);
         }

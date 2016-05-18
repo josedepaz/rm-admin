@@ -18,20 +18,24 @@
         activate();
 
         function savePoints(answerId, answer) {
+            self.loading = true;
             $http.post('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId + '/answers/' + answerId, answer)
                 .then(savePointsDone, savePointsFail);
         }
 
         function savePointsDone(result) {
             console.log(result);
+            self.loading = false;
             toastr.info("Puntos guardados exitosamente");
         }
 
         function savePointsFail(error) {
             toastr.error(error);
+            self.loading = false;
         }
 
         function activate() {
+            self.loading = true;
             $http.get('/rm-server-web/rs/rallies/questions/' + $routeParams.questionId)
                 .then(getQuestionDone, getQuestionFail);
 
@@ -55,10 +59,12 @@
         }
 
         function getAnswersDone(result) {
+            self.loading = false;
             self.answers = result.data;
         }
 
         function getAnswersFail(error) {
+            self.loading = false;
             console.log(error);
         }
     }

@@ -4,7 +4,7 @@
             <h3 class="mdl-card__title-text" ng-bind="answersCtrl.questionInfo.name"></h3>
         </div>
         <div class="mdl-card__supporting-text">
-            <div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active" ng-if="!answersCtrl.answers.length"></div>
+            <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
             <ul class="mdl-list ">
                 <li class="mdl-list__item mdl-list__item--three-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers" repeat-end >
                     <div class="mdl-list__item-primary-content">

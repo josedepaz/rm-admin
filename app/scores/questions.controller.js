@@ -15,16 +15,19 @@
         activate();
         
         function activate() {
+            self.loading = true;
             $http.get('/rm-server-web/rs/rallies/' + self.rallyId + '/countries').then(getCountriesDone, getCountriesFail);
             //$http.get('scores/questions.json').then(getCountriesDone, getCountriesFail);
         }
         
         function getCountriesDone(result) {
             self.countries = result.data;
+            self.loading = false;
         }
         
         function getCountriesFail(error) {
             console.log(error);
+            self.loading = false;
         }
     }
 })();
