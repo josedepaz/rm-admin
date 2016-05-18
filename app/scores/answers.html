@@ -1,10 +1,4 @@
 <div class="mdl-grid demo-content">
-    <!-- QUESTION -->
-    <div id="modal" class="modal modal__bg">
-        <div class="modal__content">
-            <p ng-bind-html="answersCtrl.questionInfo.plainText"></p>
-        </div>
-    </div>
     <!-- ANSWERS -->
     <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title">
@@ -75,6 +69,15 @@
             </div>
             </li>
             </ul-->
+        </div>
+    </div>
+</div>
+
+<!-- QUESTION -->
+<div id="modal" class="modal modal__bg">
+    <div class="modal__dialog">
+        <div class="modal__content">
+            <p ng-bind-html="answersCtrl.questionInfo.plainText"></p>
         </div>
     </div>
 </div>
