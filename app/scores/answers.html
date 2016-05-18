@@ -1,7 +1,7 @@
 <div class="mdl-grid demo-content">
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--8-col mdl-grid">
         <div class="mdl-card__title">
-            <h3 class="mdl-card__title-text" ng-bind="answersCtrl.questionInfo.name"></h3>
+            <h3 class="mdl-card__title-text">Respuestas</h3>
         </div>
         <div class="mdl-card__supporting-text">
             <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
@@ -35,4 +35,15 @@
             </ul>
         </div>
     </div>
+    <!-- QUESTION -->
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-grid">
+        <div class="mdl-card__title">
+            <h3 class="mdl-card__title-text" ng-bind="answersCtrl.questionInfo.name"></h3>
+        </div>
+        <div class="mdl-card__supporting-text">
+            <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="answersCtrl.loading" alt="Cargando...">
+            <p ng-bind-html="answersCtrl.questionInfo.textplain"></p>
+        </div>
+    </div>
+    
 </div>
