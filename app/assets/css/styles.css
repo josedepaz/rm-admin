@@ -66,7 +66,7 @@ html, body {
           justify-content: flex-end;
   padding: 16px;
   height: 151px;
-  background-image: url("..img/logo_bg.png");
+  background-image: url("/rm-admin/assets/img/logo_bg.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
