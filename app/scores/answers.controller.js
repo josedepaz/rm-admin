@@ -78,7 +78,10 @@
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
-                fullscreen: useFullScreen
+                fullscreen: useFullScreen,
+                locals: {
+                    plainText: self.questionInfo.plainText
+                }
             })
                 .then(function (answer) {
                     self.status = 'You said the information was "' + answer + '".';
@@ -92,9 +95,9 @@
             });
         };
     }
-    
+
     //DialogController
-    function DialogController(){
+    function DialogController() {
         var self = this;
     }
 })();
