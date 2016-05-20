@@ -97,7 +97,7 @@
     }
 
     //DialogController
-    function DialogController() {
-        var self = this;
+    function DialogController($scope, plainText) {
+        $scope.plainText = plainText;
     }
 })();
