@@ -93,8 +93,8 @@
     }
 
     //DialogController
-    function DialogController($scope, plainText) {
-        $scope.plainText = plainText;
+    function DialogController($scope, $mdDialog, questionInfo) {
+        $scope.questionInfo = questionInfo;
         
         $scope.close = close;
         
