@@ -5,9 +5,9 @@
         .controller('AnswersController', AnswersController)
         .controller('DialogController', DialogController);
 
-    AnswersController.$inject = ['$http', '$routeParams', '$timeout', '$mdDialog', '$mdMedia'];
+    AnswersController.$inject = ['$scope', '$http', '$routeParams', '$timeout', '$mdDialog', '$mdMedia'];
 
-    function AnswersController($http, $routeParams, $timeout, $mdDialog, $mdMedia) {
+    function AnswersController($scope, $http, $routeParams, $timeout, $mdDialog, $mdMedia) {
         var self = this;
 
         self.questionInfo = {};
@@ -85,10 +85,10 @@
                 }, function () {
                     self.status = 'You cancelled the dialog.';
                 });
-            self.$watch(function () {
+            $scope.$watch(function () {
                 return $mdMedia('xs') || $mdMedia('sm');
             }, function (wantsFullScreen) {
-                $scope.customFullscreen = (wantsFullScreen === true);
+                self.customFullscreen = (wantsFullScreen === true);
             });
         };
     }
