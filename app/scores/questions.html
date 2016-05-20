@@ -3,20 +3,16 @@
         <div class="mdl-textfield mdl-js-textfield">
             <select ng-model="search" class="mdl-textfield__input" id="countries">
                 <option value="">Todas las preguntas</option>
-                <option value="brasil">Preguntas de Brasil</option>
-                <option value="guatemala">Preguntas de Guatemala</option>
-                <option value="panama">Preguntas de Panama</option>
-                <option value="peru">Preguntas de Peru</option>
+                <option ng-repeat="rallyCountry in questionsCtrl.countries" value="rallyCountry.country.name" ng-bind="rallyCountry.country.name"></option>
             </select>
-            
         </div>
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-show="questionsCtrl.loading" alt="Cargando...">
     </div>
 
     <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid" ng-repeat="rallyCountry in questionsCtrl.countries | filter: {country: {name: search}}">
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Preguntas de {{rallyCountry.country.name}}</h3>
         </div>
-        <img ng-src="/rm-admin/assets/img/ring.svg" ng-show="questionsCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
             <ul class="mdl-list ">
                 <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="question in rallyCountry.questions"
