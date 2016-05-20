@@ -3,12 +3,12 @@
     <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text" ng-bind="answersCtrl.questionInfo.name"></h3>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.showAdvanced($event)">
-                Ver pregunta
-            </button>
         </div>
         <img ng-src="/rm-admin/assets/img/ring.svg" ng-show="answersCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
+            <button class="mdl-button mdl-js-button mdl-button--accent" ng-click="answersCtrl.showAdvanced($event)">
+                Ver pregunta
+            </button>
             <ul class="mdl-list ">
                 <li class="mdl-list__item mdl-list__item--three-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers"
                     repeat-end>

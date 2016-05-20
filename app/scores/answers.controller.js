@@ -80,7 +80,7 @@
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
-                    plainText: self.questionInfo.plainText
+                    questionInfo: self.questionInfo
                 }
             });
             
