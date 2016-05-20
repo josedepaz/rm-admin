@@ -2,11 +2,11 @@
     'use strict';
     
     angular.module('app')
-        .controller('questionsController', questionsController);
+        .controller('QuestionsController', QuestionsController);
     
-    questionsController.$inject = ['$http', '$routeParams'];
+    QuestionsController.$inject = ['$http', '$routeParams'];
     
-    function questionsController($http, $routeParams) {
+    function QuestionsController($http, $routeParams) {
         var self = this;
         
         self.rallyId = $routeParams.rallyId;

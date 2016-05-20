@@ -16,12 +16,12 @@
             })
             .when('/scores/', {
                 templateUrl: 'scores/scores.html',
-                controller: 'scoresController',
+                controller: 'ScoresController',
                 controllerAs: 'scoresCtrl'
             })
             .when('/scores/rally/:rallyId/questions/', {
                 templateUrl: 'scores/questions.html',
-                controller: 'questionsController',
+                controller: 'QuestionsController',
                 controllerAs: 'questionsCtrl'
             })
             .when('/scores/rally/:rallyId/questions/:questionId/answers', {
@@ -31,12 +31,12 @@
             })
             .when('/rankings/', {
                 templateUrl: 'rankings/rankings.html',
-                controller: 'rankingsController',
+                controller: 'RankingsController',
                 controllerAs: 'rankingsCtrl'
             })
             .when('/rankings/:rallyId', {
                 templateUrl: 'rankings/ranking.html',
-                controller: 'rankingController',
+                controller: 'RankingController',
                 controllerAs: 'rankingCtrl'
             })
             .when('/', {

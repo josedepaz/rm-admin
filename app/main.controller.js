@@ -1,9 +1,9 @@
 (function(){
     'use strict';
     angular.module('app')
-    .controller('mainController', mainController);
+    .controller('MainController', MainController);
     
-    function mainController(){
+    function MainController(){
         var self = this;
         this.title = "Rally Matemático";
     }

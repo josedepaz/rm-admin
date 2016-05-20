@@ -2,11 +2,11 @@
     'use strict';
     
     angular.module('app')
-        .controller('scoresController', scoresController);
+        .controller('ScoresController', ScoresController);
         
-    scoresController.$inject = ['$http'];
+    ScoresController.$inject = ['$http'];
         
-    function scoresController($http) {
+    function ScoresController($http) {
         var self = this;
         
         self.rallies = [];

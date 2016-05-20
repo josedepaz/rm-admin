@@ -2,11 +2,11 @@
     'use strict';
     
     angular.module('app')
-        .controller('rankingController', rankingController);
+        .controller('RankingController', RankingController);
         
-    rankingController.$inject = ['$http', '$routeParams'];
+    RankingController.$inject = ['$http', '$routeParams'];
         
-    function rankingController($http, $routeParams) {
+    function RankingController($http, $routeParams) {
         var self = this;
         
         self.ranking = [];
