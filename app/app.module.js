@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('app', ['ngRoute', 'ngSanitize', 'ngAnimate', 'smart-table'])
+    angular.module('app', ['ngRoute', 'ngSanitize', 'ngAnimate', 'smart-table', 'ngMaterial'])
         .config(configuration)
         .directive("repeatEnd", repeatEnd);
 

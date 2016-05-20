@@ -4,14 +4,14 @@
     angular.module('app')
         .controller('answersController', answersController);
 
-    answersController.$inject = ['$http', '$routeParams', '$timeout'];
+    answersController.$inject = ['$http', '$routeParams', '$timeout', '$mdDialog', '$mdMedia'];
 
-    function answersController($http, $routeParams, $timeout) {
+    function answersController($http, $routeParams, $timeout, $mdDialog, $mdMedia) {
         var self = this;
 
         self.questionInfo = {};
         self.answers = [];
-        self.points = [0,1,2,3,4,5,6,7,8,9,10];
+        self.points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         self.savePoints = savePoints;
 
@@ -67,5 +67,28 @@
             self.loading = false;
             console.log(error);
         }
+
+        //Show dialog
+        self.showAdvanced = function (ev) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
+            $mdDialog.show({
+                controller: DialogController,
+                templateUrl: 'dialog1.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen
+            })
+                .then(function (answer) {
+                    self.status = 'You said the information was "' + answer + '".';
+                }, function () {
+                    self.status = 'You cancelled the dialog.';
+                });
+            self.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                $scope.customFullscreen = (wantsFullScreen === true);
+            });
+        };
     }
 })();
