@@ -2,7 +2,10 @@
     <!-- ANSWERS -->
     <div class="demo-graphs mdl-shadow--2dp mdl-color--white mdl-cell mdl-cell--12-col">
         <div class="mdl-card__title">
-            <h3 class="mdl-card__title-text">Respuestas</h3>
+            <h3 class="mdl-card__title-text" ng-bind="answersCtrl.name"></h3>
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.showAdvanced($event)">
+                Ver pregunta
+            </button>
         </div>
         <img ng-src="/rm-admin/assets/img/ring.svg" ng-show="answersCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
@@ -38,9 +41,3 @@
         </div>
     </div>
 </div>
-
-<!-- QUESTION -->
-
-<md-button class="md-primary md-raised" ng-click="answersCtrl.showAdvanced($event)">
-      Ver pregunta
-    </md-button>

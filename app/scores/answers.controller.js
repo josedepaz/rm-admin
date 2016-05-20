@@ -74,7 +74,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: 'dialogs/dialog1.tmpl.html',
+                templateUrl: 'dialogs/question-dialog.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -82,12 +82,8 @@
                 locals: {
                     plainText: self.questionInfo.plainText
                 }
-            })
-                .then(function (answer) {
-                    self.status = 'You said the information was "' + answer + '".';
-                }, function () {
-                    self.status = 'You cancelled the dialog.';
-                });
+            });
+            
             $scope.$watch(function () {
                 return $mdMedia('xs') || $mdMedia('sm');
             }, function (wantsFullScreen) {
@@ -99,5 +95,11 @@
     //DialogController
     function DialogController($scope, plainText) {
         $scope.plainText = plainText;
+        
+        $scope.close = close;
+        
+        function close(){
+            $mdDialog.hide();
+        }
     }
 })();
