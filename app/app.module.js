@@ -26,7 +26,7 @@
             })
             .when('/scores/rally/:rallyId/questions/:questionId/answers', {
                 templateUrl: 'scores/answers.html',
-                controller: 'answersController',
+                controller: 'AnswersController',
                 controllerAs: 'answersCtrl'
             })
             .when('/rankings/', {

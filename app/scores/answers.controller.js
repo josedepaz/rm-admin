@@ -2,11 +2,12 @@
     'use strict';
 
     angular.module('app')
-        .controller('answersController', answersController);
+        .controller('AnswersController', AnswersController)
+        .controller('DialogController', DialogController);
 
-    answersController.$inject = ['$http', '$routeParams', '$timeout', '$mdDialog', '$mdMedia'];
+    AnswersController.$inject = ['$http', '$routeParams', '$timeout', '$mdDialog', '$mdMedia'];
 
-    function answersController($http, $routeParams, $timeout, $mdDialog, $mdMedia) {
+    function AnswersController($http, $routeParams, $timeout, $mdDialog, $mdMedia) {
         var self = this;
 
         self.questionInfo = {};
@@ -90,5 +91,10 @@
                 $scope.customFullscreen = (wantsFullScreen === true);
             });
         };
+    }
+    
+    //DialogController
+    function DialogController(){
+        var self = this;
     }
 })();
