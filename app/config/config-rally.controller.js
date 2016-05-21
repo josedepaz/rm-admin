@@ -103,6 +103,7 @@
         $scope.querySearch = querySearch;
 
         $scope.countries = loadCountries();
+        $scope.levels = loadLevels();
 
         function close() {
             $mdDialog.hide();
@@ -147,6 +148,15 @@
                 country._lowertype = country.type.toLowerCase();
                 return country;
             });
+        }
+        
+        function loadLevels(){
+            var levels = [
+                {id: 38, name: '2do y 3er grado'},
+                {id: 39, name: '4to y 5to grado'},
+                {id: 40, name: '6to y 1ro Básico'}
+            ];
+            return levels;
         }
     }
 })();
