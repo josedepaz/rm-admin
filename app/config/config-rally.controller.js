@@ -102,7 +102,7 @@
         $scope.transformChip = transformChip;
         $scope.querySearch = querySearch;
 
-        $scope.vegetables = loadVegetables();
+        $scope.countries = loadCountries();
 
         function close() {
             $mdDialog.hide();
@@ -136,34 +136,18 @@
             };
         }
 
-        function loadVegetables() {
-            var veggies = [
-                {
-                    'name': 'Broccoli',
-                    'type': 'Brassica'
-                },
-                {
-                    'name': 'Cabbage',
-                    'type': 'Brassica'
-                },
-                {
-                    'name': 'Carrot',
-                    'type': 'Umbelliferous'
-                },
-                {
-                    'name': 'Lettuce',
-                    'type': 'Composite'
-                },
-                {
-                    'name': 'Spinach',
-                    'type': 'Goosefoot'
-                }
-            ];
-            return veggies.map(function (veg) {
+        function loadCountries() {
+            
+            var countries = [];
+            angular.forEach(self.rally.rallyCountries, function(value, key){
+                countries.push(value);
+            });
+            return countries;
+            /*return countries.map(function (veg) {
                 veg._lowername = veg.name.toLowerCase();
                 veg._lowertype = veg.type.toLowerCase();
                 return veg;
-            });
+            });*/
         }
     }
 })();
