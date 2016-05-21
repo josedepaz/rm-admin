@@ -61,19 +61,19 @@
                 .catch(function (error) {
                     vm.isLoading = false;
                 });
-            
+
             /*service.getPage(start, number, tableState).then(function (result) {
                 vm.displayed = result.data;
                 tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
                 vm.isLoading = false;
             });*/
         };
-        
-        function showEditBox (ev, rally) {
+
+        function showEditBox(ev, rally) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
                 controller: ConfigRallyDialogController,
-                templateUrl: 'dialogs/config-rally-dialog.tmpl.html',
+                templateUrl: 'config/config-rally-dialog.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -82,7 +82,7 @@
                     rally: rally
                 }
             });
-            
+
             $scope.$watch(function () {
                 return $mdMedia('xs') || $mdMedia('sm');
             }, function (wantsFullScreen) {
@@ -94,11 +94,69 @@
     //DialogController
     function ConfigRallyDialogController($scope, $mdDialog, rally) {
         $scope.rally = rally;
-        
+        $scope.rally.startDate = new Date($scope.rally.startDate);
+
         $scope.close = close;
-        
-        function close(){
+        $scope.save = save;
+
+        $scope.transformChip = transformChip;
+        $scope.querySearch = querySearch;
+
+        $scope.countries = loadCountries();
+        $scope.levels = loadLevels();
+
+        function close() {
             $mdDialog.hide();
+        }
+
+        function save() {
+            $mdDialog.hide();
+        }
+
+        function transformChip(chip) {
+            // If it is an object, it's already a known chip
+            if (angular.isObject(chip)) {
+                return chip;
+            }
+            // Otherwise, create a new one
+            return { name: chip, type: 'new' }
+        }
+
+        function querySearch(query) {
+            var results = query ? $scope.countries.filter(createFilterFor(query)) : [];
+            return results;
+        }
+        /**
+         * Create filter function for a query string
+         */
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+            return function filterFn(country) {
+                return (country._lowername.indexOf(lowercaseQuery) === 0) ||
+                    (country._lowertype.indexOf(lowercaseQuery) === 0);
+            };
+        }
+
+        function loadCountries() {
+            
+            var countries = [];
+            angular.forEach($scope.rally.rallyCountries, function(value, key){
+                countries.push(value.country);
+            });
+            return countries.map(function (country) {
+                country._lowername = country.name.toLowerCase();
+                country._lowertype = country.type.toLowerCase();
+                return country;
+            });
+        }
+        
+        function loadLevels(){
+            var levels = [
+                {id: 38, name: '2do y 3er grado'},
+                {id: 39, name: '4to y 5to grado'},
+                {id: 40, name: '6to y 1ro Básico'}
+            ];
+            return levels;
         }
     }
 })();
