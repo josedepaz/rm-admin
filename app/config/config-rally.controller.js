@@ -5,8 +5,8 @@
         .module('app')
         .controller('ConfigRallyController', ConfigRallyController);
 
-    ConfigRallyController.$inject = ['$http'];
-    function ConfigRallyController($http) {
+    ConfigRallyController.$inject = ['$scope', '$http', '$mdDialog', '$mdMedia'];
+    function ConfigRallyController($scope, $http, $mdDialog, $mdMedia) {
         var vm = this;
 
         vm.rallies = [];

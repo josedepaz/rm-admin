@@ -5,14 +5,14 @@
         .config(configuration)
         .directive("repeatEnd", repeatEnd);
 
-    configuration.$inject = ['$routeProvider'];
+    configuration.$inject = ['$routeProvider', '$mdThemingProvider'];
 
-    function configuration($routeProvider) {
+    function configuration($routeProvider, $mdThemingProvider) {
 	       $routeProvider
             .when('/config/', {
                 templateUrl: 'config/config-rally.html',
                 controller: 'ConfigRallyController',
-                controllerAs: 'configRallyCtrl'   
+                controllerAs: 'configRallyCtrl'
             })
             .when('/scores/', {
                 templateUrl: 'scores/scores.html',
@@ -49,6 +49,10 @@
                 controller: 'HomeController',
                 controllerAs: 'homeCtrl'
             });
+
+        $mdThemingProvider.theme('docs-dark', 'default')
+            .primaryPalette('yellow')
+            .dark();
     }
 
     repeatEnd.$inject = ['$timeout'];
