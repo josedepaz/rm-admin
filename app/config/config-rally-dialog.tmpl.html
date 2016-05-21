@@ -15,13 +15,11 @@
           <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
             <div>
               <md-input-container>
-                <label>ID</label>
-                <input ng-model="rally.id" disabled>
-              </md-input-container>
-              <md-input-container>
                 <label>Nombre</label>
                 <input ng-model="rally.name">
               </md-input-container>
+              <md-datepicker ng-model="rally.startDate" md-placeholder="Fecha inicio">
+              </md-datepicker>
             </div>
           </md-content>
           <md-content layout-padding>
@@ -29,11 +27,20 @@
               <form name="userForm">
                 <div layout-gt-xs="row">
                   <md-input-container class="md-block" flex-gt-xs>
-                    <label>Company (Disabled)</label>
-                    <input ng-model="rally.company" disabled>
+                    <label>Países</label>
+                    <md-chips ng-model="rally.rallyCountries" md-autocomplete-snap md-transform-chip="transformChip($chip)" md-require-match="true">
+                      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name"
+                        placeholder="Search for a vegetable">
+                        <span md-highlight-text="searchText">{{item.name}} :: {{item.type}}</span>
+                      </md-autocomplete>
+                      <md-chip-template>
+                        <span>
+          <strong>{{$chip.name}}</strong>
+          <em>({{$chip.type}})</em>
+        </span>
+                      </md-chip-template>
+                    </md-chips>
                   </md-input-container>
-                  <md-datepicker ng-model="rally.startDate" md-placeholder="Fecha inicio">
-                  </md-datepicker>
                 </div>
 
                 <md-input-container class="md-block">

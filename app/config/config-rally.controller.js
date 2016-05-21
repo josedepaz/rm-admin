@@ -61,15 +61,15 @@
                 .catch(function (error) {
                     vm.isLoading = false;
                 });
-            
+
             /*service.getPage(start, number, tableState).then(function (result) {
                 vm.displayed = result.data;
                 tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
                 vm.isLoading = false;
             });*/
         };
-        
-        function showEditBox (ev, rally) {
+
+        function showEditBox(ev, rally) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
                 controller: ConfigRallyDialogController,
@@ -82,7 +82,7 @@
                     rally: rally
                 }
             });
-            
+
             $scope.$watch(function () {
                 return $mdMedia('xs') || $mdMedia('sm');
             }, function (wantsFullScreen) {
@@ -95,16 +95,75 @@
     function ConfigRallyDialogController($scope, $mdDialog, rally) {
         $scope.rally = rally;
         $scope.rally.startDate = new Date($scope.rally.startDate);
-        
+
         $scope.close = close;
         $scope.save = save;
-        
-        function close(){
+
+        $scope.transformChip = transformChip;
+        $scope.querySearch = querySearch;
+
+        $scope.vegetables = loadVegetables();
+
+        function close() {
             $mdDialog.hide();
         }
-        
-        function save(){
+
+        function save() {
             $mdDialog.hide();
+        }
+
+        function transformChip(chip) {
+            // If it is an object, it's already a known chip
+            if (angular.isObject(chip)) {
+                return chip;
+            }
+            // Otherwise, create a new one
+            return { name: chip, type: 'new' }
+        }
+
+        function querySearch(query) {
+            var results = query ? self.vegetables.filter(createFilterFor(query)) : [];
+            return results;
+        }
+        /**
+         * Create filter function for a query string
+         */
+        function createFilterFor(query) {
+            var lowercaseQuery = angular.lowercase(query);
+            return function filterFn(vegetable) {
+                return (vegetable._lowername.indexOf(lowercaseQuery) === 0) ||
+                    (vegetable._lowertype.indexOf(lowercaseQuery) === 0);
+            };
+        }
+
+        function loadVegetables() {
+            var veggies = [
+                {
+                    'name': 'Broccoli',
+                    'type': 'Brassica'
+                },
+                {
+                    'name': 'Cabbage',
+                    'type': 'Brassica'
+                },
+                {
+                    'name': 'Carrot',
+                    'type': 'Umbelliferous'
+                },
+                {
+                    'name': 'Lettuce',
+                    'type': 'Composite'
+                },
+                {
+                    'name': 'Spinach',
+                    'type': 'Goosefoot'
+                }
+            ];
+            return veggies.map(function (veg) {
+                veg._lowername = veg.name.toLowerCase();
+                veg._lowertype = veg.type.toLowerCase();
+                return veg;
+            });
         }
     }
 })();
