@@ -139,7 +139,7 @@
         function loadCountries() {
             
             var countries = [];
-            angular.forEach(self.rally.rallyCountries, function(value, key){
+            angular.forEach($scope.rally.rallyCountries, function(value, key){
                 countries.push(value);
             });
             return countries;
