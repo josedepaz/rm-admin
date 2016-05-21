@@ -13,8 +13,7 @@
       <div class="md-dialog-content">
         <div layout="column" ng-cloak class="md-inline-form">
           <md-content md-theme="docs-dark" layout-gt-sm="row" layout-padding>
-            <div layout-gt-xs="row">
-              <md-input-container>
+              <md-input-container class="md-block" flex-gt-sm>
                 <label>Nombre</label>
                 <input ng-model="rally.name">
               </md-input-container>
@@ -28,7 +27,6 @@
               </md-input-container>
               <md-datepicker ng-model="rally.startDate" md-placeholder="Fecha inicio">
               </md-datepicker>
-            </div>
           </md-content>
           <md-content layout-padding>
             <div>
