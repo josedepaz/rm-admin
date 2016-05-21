@@ -122,7 +122,7 @@
         }
 
         function querySearch(query) {
-            var results = query ? self.vegetables.filter(createFilterFor(query)) : [];
+            var results = query ? $scope.countries.filter(createFilterFor(query)) : [];
             return results;
         }
         /**
@@ -130,9 +130,9 @@
          */
         function createFilterFor(query) {
             var lowercaseQuery = angular.lowercase(query);
-            return function filterFn(vegetable) {
-                return (vegetable._lowername.indexOf(lowercaseQuery) === 0) ||
-                    (vegetable._lowertype.indexOf(lowercaseQuery) === 0);
+            return function filterFn(country) {
+                return (country._lowername.indexOf(lowercaseQuery) === 0) ||
+                    (country._lowertype.indexOf(lowercaseQuery) === 0);
             };
         }
 
@@ -142,12 +142,11 @@
             angular.forEach($scope.rally.rallyCountries, function(value, key){
                 countries.push(value.country);
             });
-            return countries;
-            /*return countries.map(function (veg) {
-                veg._lowername = veg.name.toLowerCase();
-                veg._lowertype = veg.type.toLowerCase();
-                return veg;
-            });*/
+            return countries.map(function (country) {
+                country._lowername = country.name.toLowerCase();
+                country._lowertype = country.type.toLowerCase();
+                return country;
+            });
         }
     }
 })();
