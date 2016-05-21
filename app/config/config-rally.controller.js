@@ -15,7 +15,6 @@
         vm.callServer = callServer;
         vm.showEditBox = showEditBox;
 
-
         activate();
 
         ////////////////
@@ -46,7 +45,7 @@
 
         function callServer(tableState) {
 
-            vm.isLoading = true;
+            vm.loading = true;
 
             var pagination = tableState.pagination;
 
@@ -56,10 +55,10 @@
             $http.get('/rm-server-web/rs/config/rally?position=' + start + '&limit=' + number)
                 .then(function (result) {
                     vm.rallies = result.data;
-                    vm.isLoading = false;
+                    vm.loading = false;
                 })
                 .catch(function (error) {
-                    vm.isLoading = false;
+                    vm.loading = false;
                 });
 
             /*service.getPage(start, number, tableState).then(function (result) {

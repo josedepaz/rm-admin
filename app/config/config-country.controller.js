@@ -18,7 +18,7 @@
         
         function callServer(tableState) {
 
-            vm.isLoading = true;
+            vm.loading = true;
 
             var pagination = tableState.pagination;
 
@@ -28,10 +28,10 @@
             $http.get('/rm-server-web/rs/config/country?position=' + start + '&limit=' + number)
                 .then(function (result) {
                     vm.countries = result.data;
-                    vm.isLoading = false;
+                    vm.loading = false;
                 })
                 .catch(function (error) {
-                    vm.isLoading = false;
+                    vm.loading = false;
                 });
 
             /*service.getPage(start, number, tableState).then(function (result) {
