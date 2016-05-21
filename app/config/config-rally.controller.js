@@ -140,7 +140,7 @@
             
             var countries = [];
             angular.forEach($scope.rally.rallyCountries, function(value, key){
-                countries.push(value);
+                countries.push(value.country);
             });
             return countries;
             /*return countries.map(function (veg) {
