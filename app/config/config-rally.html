@@ -19,7 +19,11 @@
                         <td>{{rally.id}}</td>
                         <td class="mdl-data-table__cell--non-numeric">{{rally.name}}</td>
                         <td class="mdl-data-table__cell--non-numeric">{{rally.level.name}}</td>
-                        <td><button ng-click="configRallyCtrl.showEditBox($event, rally)"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">mode edit</i></button></td>
+                        <td>
+                            <button ng-click="configRallyCtrl.showEditBox($event, rally)" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">mode edit</i>
+                            </button>
+                        </td>
                     </tr>
                 </tbody>
                 <tbody ng-show="configRallyCtrl.isLoading">
