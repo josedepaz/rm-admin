@@ -16,7 +16,7 @@
             })
             .when('/config/countries', {
                 templateUrl: 'config/config-country.html',
-                controller: 'ConfigQuestionController',
+                controller: 'ConfigCountryController',
                 controllerAs: 'configCountryCtrl'
             })
             .when('/scores/', {
