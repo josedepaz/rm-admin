@@ -73,7 +73,7 @@
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
                 controller: ConfigRallyDialogController,
-                templateUrl: 'dialogs/config-rally-dialog.tmpl.html',
+                templateUrl: 'config/config-rally-dialog.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
@@ -94,10 +94,16 @@
     //DialogController
     function ConfigRallyDialogController($scope, $mdDialog, rally) {
         $scope.rally = rally;
+        $scope.rally.startDate = new Date($scope.rally.startDate);
         
         $scope.close = close;
+        $scope.save = save;
         
         function close(){
+            $mdDialog.hide();
+        }
+        
+        function save(){
             $mdDialog.hide();
         }
     }
