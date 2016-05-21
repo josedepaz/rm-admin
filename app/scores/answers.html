@@ -13,7 +13,7 @@
                 <li class="mdl-list__item mdl-list__item--three-line mdl-card__actions mdl-card--border" ng-repeat="answer in answersCtrl.answers"
                     repeat-end>
                     <div class="mdl-list__item-primary-content">
-                        <span>{{answer.group.user}} ({{answer.group.country.name}}):</span>
+                        <span>{{answer.registration.group.user}} ({{answer.registration.group.country.name}}):</span>
                         <div class="mdl-list__item-text-body">
                             <small>Recibida: {{answer.creationDate | date: 'dd/MM/yyyy'}}</small>
                             <span ng-show="answer.answer.indexOf('URL:') !== 0" class=""> {{answer.answer}}</span>
