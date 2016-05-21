@@ -1,0 +1,36 @@
+<div class="mdl-grid demo-content">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid base-class mdl-cell--12-col">
+        <div class="mdl-card__title">
+            <h3 class="mdl-card__title-text">Configuración de Países</h3>
+        </div>
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="configCountryCtrl.loading" alt="Cargando...">
+        <div class="mdl-card__supporting-text">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width" st-pipe="configCountryCtrl.callServer" st-table="ConfigCountryController.countries">
+                <thead>
+                    <tr>
+                        <th st-sort="id">ID</th>
+                        <th st-sort="name" class="mdl-data-table__cell--non-numeric full-width">País</th>
+                        <th class="mdl-data-table__cell--non-numeric">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody ng-show="!configCountryCtrl.isLoading">
+                    <tr ng-repeat="country in configCountryCtrl.countries">
+                        <td>{{country.id}}</td>
+                        <td class="mdl-data-table__cell--non-numeric">{{country.name}}</td>
+                        <td>
+                            <button ng-click="configCountryCtrl.showEditBox($event, country)" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                                <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">mode edit</i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td class="text-center" st-pagination="" st-items-by-page="10" colspan="4">
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>

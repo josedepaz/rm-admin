@@ -14,6 +14,11 @@
                 controller: 'ConfigRallyController',
                 controllerAs: 'configRallyCtrl'
             })
+            .when('config/countries', {
+                templateUrl: 'config/config-country.html',
+                controller: 'ConfigQuestionController',
+                controllerAs: 'configCountryCtrl'
+            })
             .when('/scores/', {
                 templateUrl: 'scores/scores.html',
                 controller: 'ScoresController',

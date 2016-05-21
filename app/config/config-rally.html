@@ -3,7 +3,7 @@
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Configuración de Rallies</h3>
         </div>
-        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="rankingCtrl.loading" alt="Cargando...">
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="configRallyCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width" st-pipe="configRallyCtrl.callServer" st-table="configRallyCtrl.rallies">
                 <thead>
@@ -24,11 +24,6 @@
                                 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">mode edit</i>
                             </button>
                         </td>
-                    </tr>
-                </tbody>
-                <tbody ng-show="configRallyCtrl.isLoading">
-                    <tr>
-                        <td colspan="4" class="text-center">Cargango ... </td>
                     </tr>
                 </tbody>
                 <tfoot>
