@@ -14,7 +14,7 @@
                 controller: 'ConfigRallyController',
                 controllerAs: 'configRallyCtrl'
             })
-            .when('config/countries', {
+            .when('/config/countries', {
                 templateUrl: 'config/config-country.html',
                 controller: 'ConfigQuestionController',
                 controllerAs: 'configCountryCtrl'
