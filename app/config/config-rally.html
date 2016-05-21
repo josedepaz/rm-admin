@@ -3,24 +3,14 @@
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Configuración de Rallies</h3>
         </div>
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="rankingCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
-            <!--ul class="mdl-list ">
-                <li class="mdl-list__item mdl-list__item--two-line mdl-card__actions mdl-card--border" ng-repeat="rally in configRallyCtrl.rallies">
-                    <span class="mdl-list__item-primary-content">
-                    <a href="#/scores/rally/{{rally.id}}/questions/">{{rally.name}}</a>
-                <span class="mdl-list__item-sub-title">
-                    {{rally.description}}
-                </span>
-                    </span>
-                </li>
-            </ul-->
-
             <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width" st-pipe="configRallyCtrl.callServer" st-table="configRallyCtrl.rallies">
                 <thead>
                     <tr>
                         <th st-sort="id">ID</th>
                         <th st-sort="name" class="mdl-data-table__cell--non-numeric md-width">Rally</th>
-                        <th st-sort="description" class="mdl-data-table__cell--non-numeric full-width">Descripción</th>
+                        <th st-sort="description" class="mdl-data-table__cell--non-numeric full-width">Nivel</th>
                         <th class="mdl-data-table__cell--non-numeric">Opciones</th>
                     </tr>
                 </thead>
@@ -28,8 +18,8 @@
                     <tr ng-repeat="rally in configRallyCtrl.rallies">
                         <td>{{rally.id}}</td>
                         <td class="mdl-data-table__cell--non-numeric">{{rally.name}}</td>
-                        <td class="mdl-data-table__cell--non-numeric">{{rally.description}}</td>
-                        <td><button ng-click="configRallyCtrl.select()">E</button></td>
+                        <td class="mdl-data-table__cell--non-numeric">{{rally.level.name}}</td>
+                        <td><button ng-click="configRallyCtrl.showEditBox($event, rally)"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">mode edit</i></button></td>
                     </tr>
                 </tbody>
                 <tbody ng-show="configRallyCtrl.isLoading">

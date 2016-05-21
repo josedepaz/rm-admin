@@ -14,6 +14,7 @@
         self.answers = [];
         self.points = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+        self.showQuestion = showQuestion;
         self.savePoints = savePoints;
 
         activate();
@@ -68,9 +69,8 @@
             self.loading = false;
             console.log(error);
         }
-
-        //Show dialog
-        self.showAdvanced = function (ev) {
+        
+        function showQuestion (ev) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
                 controller: DialogController,

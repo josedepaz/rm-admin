@@ -1,0 +1,24 @@
+<md-dialog aria-label="Editar rally: {{rally.name}}" ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{questionInfo.name}}</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="close()">
+          <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <p ng-bind="rally.name"></p>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="close()" style="margin-right:20px;">
+        Aceptar
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>

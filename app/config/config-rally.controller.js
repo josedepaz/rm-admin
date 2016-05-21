@@ -13,8 +13,7 @@
         vm.newRally = {};
         vm.createRally = createRally;
         vm.callServer = callServer;
-        vm.selected = false;
-        vm.select = select;
+        vm.showEditBox = showEditBox;
 
 
         activate();
@@ -70,8 +69,36 @@
             });*/
         };
         
-        function select(){
-            vm.selected = vm.selected? false:true;
+        function showEditBox (ev, rally) {
+            var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
+            $mdDialog.show({
+                controller: ConfigRallyDialogController,
+                templateUrl: 'dialogs/config-rally-dialog.tmpl.html',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                clickOutsideToClose: true,
+                fullscreen: useFullScreen,
+                locals: {
+                    rally: rally
+                }
+            });
+            
+            $scope.$watch(function () {
+                return $mdMedia('xs') || $mdMedia('sm');
+            }, function (wantsFullScreen) {
+                self.customFullscreen = (wantsFullScreen === true);
+            });
+        };
+    }
+
+    //DialogController
+    function ConfigRallyDialogController($scope, $mdDialog, rally) {
+        $scope.rally = rally;
+        
+        $scope.close = close;
+        
+        function close(){
+            $mdDialog.hide();
         }
     }
 })();
