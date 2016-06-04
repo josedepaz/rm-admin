@@ -1,59 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--link rel="icon" href="/../../favicon.ico"-->
-    <title></title>
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Administracion Rally Matematico</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/custom.css" rel="stylesheet">
+    <!-- Add to homescreen for Chrome on Android 
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS 
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color)
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="libs/material.min.css">
+    <link rel="stylesheet" href="libs/angular-material.min.css">
+    <link rel="stylesheet" href="libs/toastr.min.css">
+    <link rel="stylesheet" href="assets/css/rm.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        #view-source {
+            position: fixed;
+            display: block;
+            right: 0;
+            bottom: 0;
+            margin-right: 40px;
+            margin-bottom: 40px;
+            z-index: 900;
+        }
+    </style>
 </head>
 
 <body>
-<div class="container">
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img class="img-responsive center-block pull-left hvr-buzz" src="/assets/images/common/logo_rally.png" alt="rally" />
-    </div>
-    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-        <img class="img-responsive center-block pull-right hvr-buzz" src="/assets/images/common/logo_telefonica_fundacion.png" alt="telefonica"
-        />
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-md-offset-1 col-lg-offset-1">
-            <a href="#/">
-                <img class="img-responsive hvr-pulse-grow" src="/assets/images/common/ninos_world.png" alt="rally" />
-            </a>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 ">
-            <h2>Inicia sesión</h2>
-            <form class="center-block" method="POST" action="/rm-server-web/rs/admin/authenticate">
-                <div class="form-group">
-                    <label class="jLabel" for="user">Equipo:</label>
-                    <input type="text" class="form-control" placeholder="Nombre de equipo" name="user" />
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+        <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--grey-100 mdl-color-text--grey-800">
+            <div class="mdl-layout__header-row">
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <main class="mdl-layout__content">
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--4-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+                <div class="mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--4-col">
+                    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+                        <div class="mdl-card mdl-cell mdl-cell--12-col">
+                            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                                 <header class="section__play-btn mdl-cell mdl-cell--5-col-desktop mdl-cell--5-col-tablet mdl-cell--5-col-phone mdl-color--teal-100 mdl-color-text--white">
+                                    <h4 class="mdl-cell mdl-cell--12-col">Bienvenido</h4>
+                                </header>
+                                <div class="section__circle-container mdl-cell mdl-cell--1-col mdl-cell--1-col-phone">
+                                    <div class="section__circle-container__circle mdl-color--primary"></div>
+                                </div>
+                                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                                    <form method="POST" action="/rm-server-web/rs/admin/authenticate">
+                                        <div class="mdl-textfield mdl-js-textfield">
+                                            <input type="text" class="mdl-textfield__input" placeholder="Usuario" name="user" />
+                                            <label class="mdl-textfield__label" for="user">Equipo:</label>
+                                        </div>
+                                        <div class="mdl-textfield mdl-js-textfield">
+                                            <input type="password" class="mdl-textfield__input" placeholder="Contraseña" name="password" />
+                                            <label class="mdl-textfield__label" for="password">Contraseña:</label>
+                                        </div>
+                                        <div class="mdl-card__actions">
+                                            <button type="submit" class="mdl-button mdl-js-button mdl-button--accent">
+                                                Ingresar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="form-group">
-                    <label class="jLabel" for="password">Contraseña:</label>
-                    <input type="password" class="form-control" placeholder="Contraseña" name="password" />
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-lime btn-lg btn-block center-block boton-round hvr-grow-shadow">
-                        <span class="glyphicon glyphicon-ok-sign"></span> Ingresar
-                    </button>
-                </div>
-            </form>
-        </div>
+            </div>
+        </main>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer--left-section">
+                <ul class="mdl-mini-footer--link-list">
+                    <li><a href="#">Ir al Rally</a></li>
+                    <li><a href="#">Ayuda</a></li>
+                    <li>Powered by Jiro, Inc.</li>
+                </ul>
+            </div>
+        </footer>
     </div>
-</div>
-
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/toastr.min.js"></script>
+    <script src="libs/material.min.js"></script>
 </body>
 
 </html>
