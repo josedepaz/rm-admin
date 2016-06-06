@@ -1,5 +1,5 @@
-(function() {
-'use strict';
+(function () {
+    'use strict';
 
     angular
         .module('app')
@@ -16,7 +16,7 @@
         ////////////////
 
         function activate() { }
-        
+
         function callServer(tableState) {
 
             vm.loading = true;
@@ -41,7 +41,7 @@
                 vm.isLoading = false;
             });*/
         };
-        
+
         function showEditBox(ev, rally) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
@@ -62,5 +62,9 @@
                 self.customFullscreen = (wantsFullScreen === true);
             });
         };
+    }
+
+    function ConfigRallyDialogController() {
+
     }
 })();
