@@ -5,8 +5,8 @@
         .module('app')
         .controller('ConfigCountryController', ConfigCountryController);
 
-    ConfigCountryController.$inject = ['$http', '$mdDialog', '$mdMedia'];
-    function ConfigCountryController($http, $mdDialog, $mdMedia) {
+    ConfigCountryController.$inject = ['$scope', '$http', '$mdDialog', '$mdMedia'];
+    function ConfigCountryController($scope, $http, $mdDialog, $mdMedia) {
         var vm = this;
         vm.callServer = callServer;
         vm.showEditBox = showEditBox;
