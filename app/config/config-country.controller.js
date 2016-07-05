@@ -64,7 +64,7 @@
         };
     }
 
-    function ConfigCountryDialogController() {
-
+    function ConfigCountryDialogController($scope, $mdDialog, country) {
+        $scope.country = country;
     }
 })();
