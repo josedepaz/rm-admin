@@ -23,42 +23,13 @@
           <md-content layout-padding>
             <div>
               <form name="userForm">
-                <div layout-gt-xs="row">
-                  <md-input-container class="md-block" flex-gt-sm>
-                    <label>Nivel</label>
-                    <md-select ng-model="country.level.name">
-                      <md-option ng-repeat="level in levels" value="{{level.id}}">
-                        {{level.name}}
-                      </md-option>
-                    </md-select>
-                  </md-input-container>
-                  <md-datepicker ng-model="country.startDate" md-placeholder="Fecha inicio">
-                  </md-datepicker>
-                </div>
-                <div layout-gt-xs="row">
-                  <md-input-container class="md-block" flex-gt-xs>
-                    <label>Países</label>
-                    <md-chips ng-model="countries" md-autocomplete-snap md-transform-chip="transformChip($chip)" md-require-match="true">
-                      <md-autocomplete md-selected-item="selectedItem" md-search-text="searchText" md-items="item in querySearch(searchText)" md-item-text="item.name"
-                        placeholder="Otro país">
-                        <span md-highlight-text="searchText">{{item.name}}</span>
-                      </md-autocomplete>
-                      <md-chip-template>
-                        <span>
-                          <strong>{{$chip.name}}</strong> 
-                        </span>
-                      </md-chip-template>
-                    </md-chips>
-                  </md-input-container>
-                </div>
-            </div>
 
             <md-input-container class="md-block">
               <label>Descripción</label>
               <textarea ng-model="country.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
             </md-input-container>
             </form>
-        </div>
+          </div>
         </md-content>
       </div>
     </md-dialog-content>
