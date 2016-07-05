@@ -3,10 +3,11 @@
 
     angular
         .module('app')
-        .controller('ConfigCountryController', ConfigCountryController);
+        .controller('UsersController', UsersController);
 
-    ConfigCountryController.$inject = ['$scope', '$http', '$mdDialog', '$mdMedia'];
-    function ConfigCountryController($scope, $http, $mdDialog, $mdMedia) {
+    UsersController.$inject = ['$scope', '$http', '$mdDialog', '$mdMedia'];
+
+    function UsersController($scope, $http, $mdDialog, $mdMedia) {
         var vm = this;
         vm.callServer = callServer;
         vm.showEditBox = showEditBox;
@@ -42,17 +43,17 @@
             });*/
         };
 
-        function showEditBox(ev, country) {
+        function showEditBox(ev, rally) {
             var useFullScreen = ($mdMedia('sm') || $mdMedia('xs')) && self.customFullscreen;
             $mdDialog.show({
-                controller: ConfigCountryDialogController,
-                templateUrl: 'config/config-country-dialog.tmpl.html',
+                controller: ConfigRallyDialogController,
+                templateUrl: 'config/config-rally-dialog.tmpl.html',
                 parent: angular.element(document.body),
                 targetEvent: ev,
                 clickOutsideToClose: true,
                 fullscreen: useFullScreen,
                 locals: {
-                    country: country
+                    rally: rally
                 }
             });
 
@@ -64,7 +65,7 @@
         };
     }
 
-    function ConfigCountryDialogController() {
+    function ConfigRallyDialogController() {
 
     }
 })();
