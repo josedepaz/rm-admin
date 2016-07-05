@@ -1,8 +1,8 @@
-<md-dialog aria-label="{{rally.name}}" ng-cloak>
+<md-dialog aria-label="{{country.name}}" ng-cloak>
   <form>
     <md-toolbar>
       <div class="md-toolbar-tools">
-        <h2>{{rally.name}}</h2>
+        <h2>{{country.name}}</h2>
         <span flex></span>
         <md-button class="md-icon-button" ng-click="close()">
           <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
@@ -16,7 +16,7 @@
             <div>
               <md-input-container>
                 <label>Nombre</label>
-                <input ng-model="rally.name">
+                <input ng-model="country.name">
               </md-input-container>
             </div>
           </md-content>
@@ -26,13 +26,13 @@
                 <div layout-gt-xs="row">
                   <md-input-container class="md-block" flex-gt-sm>
                     <label>Nivel</label>
-                    <md-select ng-model="rally.level.name">
+                    <md-select ng-model="country.level.name">
                       <md-option ng-repeat="level in levels" value="{{level.id}}">
                         {{level.name}}
                       </md-option>
                     </md-select>
                   </md-input-container>
-                  <md-datepicker ng-model="rally.startDate" md-placeholder="Fecha inicio">
+                  <md-datepicker ng-model="country.startDate" md-placeholder="Fecha inicio">
                   </md-datepicker>
                 </div>
                 <div layout-gt-xs="row">
@@ -55,7 +55,7 @@
 
             <md-input-container class="md-block">
               <label>Descripción</label>
-              <textarea ng-model="rally.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+              <textarea ng-model="country.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
             </md-input-container>
             </form>
         </div>
