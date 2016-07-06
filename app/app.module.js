@@ -9,16 +9,6 @@
 
     function configuration($routeProvider, $mdThemingProvider) {
 	       $routeProvider
-            .when('/config/', {
-                templateUrl: 'config/config-rally.html',
-                controller: 'ConfigRallyController',
-                controllerAs: 'configRallyCtrl'
-            })
-            .when('/config/countries', {
-                templateUrl: 'config/config-country.html',
-                controller: 'ConfigCountryController',
-                controllerAs: 'configCountryCtrl'
-            })
             .when('/scores/', {
                 templateUrl: 'scores/scores.html',
                 controller: 'ScoresController',
@@ -45,14 +35,14 @@
                 controllerAs: 'rankingCtrl'
             })
             .when('/', {
-                templateUrl: 'home/home.html',
-                controller: 'HomeController',
-                controllerAs: 'homeCtrl'
+                templateUrl: 'rankings/rankings.html',
+                controller: 'RankingsController',
+                controllerAs: 'rankingsCtrl'
             })
             .otherwise({
-                templateUrl: 'home/home.html',
-                controller: 'HomeController',
-                controllerAs: 'homeCtrl'
+                templateUrl: 'rankings/rankings.html',
+                controller: 'RankingsController',
+                controllerAs: 'rankingsCtrl'
             });
 
         $mdThemingProvider.theme('docs-dark', 'default')
