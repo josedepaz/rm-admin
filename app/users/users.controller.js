@@ -5,9 +5,9 @@
         .module('app')
         .controller('UsersController', UsersController);
 
-    UsersController.$inject = ['$scope', '$http'];
+    UsersController.$inject = ['$http'];
 
-    function UsersController($scope, $http) {
+    function UsersController($http) {
         var vm = this;
         vm.callServer = callServer;
 
