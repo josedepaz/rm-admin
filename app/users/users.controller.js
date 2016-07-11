@@ -10,7 +10,6 @@
     function UsersController($scope, $http) {
         var vm = this;
         vm.callServer = callServer;
-        vm.showEditBox = showEditBox;
 
         activate();
 
