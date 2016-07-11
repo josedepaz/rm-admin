@@ -5,7 +5,7 @@
         </div>
         <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="configCountryCtrl.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
-            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width" st-pipe="configCountryCtrl.callServer" st-table="ConfigCountryController.countries">
+            <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp full-width" st-pipe="configCountryCtrl.callServer" st-table="configCountryController.countries">
                 <thead>
                     <tr>
                         <th st-sort="id">ID</th>
