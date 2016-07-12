@@ -3,7 +3,7 @@
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Creación de Usuarios</h3>
         </div>
-        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="userDetailController.loading" alt="Cargando...">
+        <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="userNewController.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
             <md-content layout-padding>
                 <div>
@@ -11,25 +11,25 @@
                         <div layout-gt-sm="row">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>Nombre de usuario</label>
-                                <input ng-model="userDetailController.user.user">
+                                <input ng-model="userNewController.user.user">
                             </md-input-container>
                         </div>
                         <div layout-gt-sm="row">
                             <md-input-container class="md-block" flex-gt-sm>
-                                <label>Contraseña/label>
-                                <input ng-model="userDetailController.user.password" type="password">
+                                <label>Contraseña</label>
+                                <input ng-model="userNewController.user.password" type="password">
                             </md-input-container>
                         </div>
                         <div layout-gt-sm="row">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>Correo</label>
-                                <input ng-model="userDetailController.user.email">
+                                <input ng-model="userNewController.user.email">
                             </md-input-container>
                         </div>
                     </form>
                 </div>
             </md-content>
-            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="userDetailController.save(userDetailController.user)">
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="userNewController.save(userNewController.user)">
                     Guardar
             </button>
         </div>
