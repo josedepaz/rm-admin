@@ -20,7 +20,7 @@
                         <td class="mdl-data-table__cell--non-numeric">{{user.user}}</td>
                         <td class="mdl-data-table__cell--non-numeric">{{user.role}}</td>
                         <td>
-                            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+                            <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" ng-click="usersController.goTo(user.id)">
                                 <i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">launch</i>
                             </button>
                         </td>

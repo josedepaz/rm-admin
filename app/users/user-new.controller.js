@@ -24,6 +24,7 @@
             $http.post('/rm-server-web/rs/config/user', user)
             .then(function(result){
                 console.log("Usuario creado exitosamente");
+                vm.user = {};
             })
             .catch(function(err){
                 console.error(err);

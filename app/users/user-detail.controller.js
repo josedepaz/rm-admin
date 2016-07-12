@@ -5,8 +5,8 @@
         .module('app')
         .controller('UserDetailController', UserDetailController);
 
-    UserDetailController.$inject = ['$http'];
-    function UserDetailController($http) {
+    UserDetailController.$inject = ['$http', '$routeParams'];
+    function UserDetailController($http, $routeParams) {
         var vm = this;
 
         vm.user = {};
@@ -17,13 +17,21 @@
 
         ////////////////
 
-        function activate() { }
+        function activate() {
+            $http.get('/rm-server-web/rs/config/user/' + $routeParams.id)
+            .then(function(result){
+                vm.user = result.data;
+            })
+            .catch(function(err){
+                console.error('Error al cargar el usuario');
+            });
+        }
 
         function save(user){
             user.role = 'admin';
-            $http.post('/rm-server-web/rs/config/user', user)
+            $http.put('/rm-server-web/rs/config/user/' + vm.user.id, user)
             .then(function(result){
-                console.log("Usuario creado exitosamente");
+                console.log("Usuario actualizado exitosamente");
             })
             .catch(function(err){
                 console.error(err);

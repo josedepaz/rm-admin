@@ -40,6 +40,10 @@
                 tableState.pagination.numberOfPages = result.numberOfPages;//set the number of pages so the pagination can update
                 vm.isLoading = false;
             });*/
+
+            function goTo(id) {
+                window.location = '#/users/' + id;
+            }
         };
     }
 })();
