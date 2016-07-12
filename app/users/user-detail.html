@@ -5,7 +5,16 @@
         </div>
         <img ng-src="/rm-admin/assets/img/ring.svg" ng-if="userDetailController.loading" alt="Cargando...">
         <div class="mdl-card__supporting-text">
-            
+            <form>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="user">
+                    <label class="mdl-textfield__label" for="sample1">Nombre de usuario...</label>
+                </div>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="password" id="password">
+                    <label class="mdl-textfield__label" for="sample1">Contraseña...</label>
+                </div>
+            </form>
         </div>
     </div>
 </div>
