@@ -16,6 +16,11 @@
                     <label class="mdl-textfield__label" for="password">Contraseña...</label>
                 </div>
                 <br/>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="email" ng-model="userDetailController.user.email">
+                    <label class="mdl-textfield__label" for="email">Correo...</label>
+                </div>
+                <br/>
                 <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="userDetailController.save(userDetailController.user)">
                     Guardar
                 </button>

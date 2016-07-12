@@ -21,6 +21,7 @@
             $http.get('/rm-server-web/rs/config/user/' + $routeParams.id)
             .then(function(result){
                 vm.user = result.data;
+                componentHandler.upgradeAllRegistered();
             })
             .catch(function(err){
                 console.error('Error al cargar el usuario');
