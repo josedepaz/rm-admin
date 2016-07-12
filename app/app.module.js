@@ -54,7 +54,7 @@
                 controller: 'UserNewController',
                 controllerAs: 'userNewController'
             })
-            .when('/users/{id}', {
+            .when('/users/:id', {
                 templateUrl: 'users/user-detail.html',
                 controller: 'UserDetailController',
                 controllerAs: 'userDetailController'
