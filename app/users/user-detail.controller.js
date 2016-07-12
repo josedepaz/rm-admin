@@ -8,6 +8,9 @@
     UserDetailController.$inject = ['$http'];
     function UserDetailController($http) {
         var vm = this;
+
+        vm.user = {};
+        vm.save = save;
         
 
         activate();
@@ -15,5 +18,15 @@
         ////////////////
 
         function activate() { }
+
+        function save(user){
+            $http.post('/rm-server-web/rs/config/user', user)
+            .then(function(result){
+                console.log("Usuario creado exitosamente");
+            })
+            .catch(function(err){
+                console.error(err);
+            });
+        }
     }
 })();
