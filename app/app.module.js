@@ -55,9 +55,9 @@
                 controllerAs: 'userDetailController'
             })
             .when('/users/{id}', {
-                templateUrl: 'users/user-detail.html',
-                controller: 'UserDetailController',
-                controllerAs: 'userDetailController'
+                templateUrl: 'users/user-new.html',
+                controller: 'UserNewController',
+                controllerAs: 'userNewController'
             })
             .when('/', {
                 templateUrl: 'home/home.html',
