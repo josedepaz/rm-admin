@@ -50,14 +50,14 @@
                 controllerAs: 'usersController'
             })
             .when('/users/new', {
-                templateUrl: 'users/user-detail.html',
-                controller: 'UserDetailController',
-                controllerAs: 'userDetailController'
-            })
-            .when('/users/{id}', {
                 templateUrl: 'users/user-new.html',
                 controller: 'UserNewController',
                 controllerAs: 'userNewController'
+            })
+            .when('/users/{id}', {
+                templateUrl: 'users/user-detail.html',
+                controller: 'UserDetailController',
+                controllerAs: 'userDetailController'
             })
             .when('/', {
                 templateUrl: 'home/home.html',
