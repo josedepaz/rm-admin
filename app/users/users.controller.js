@@ -20,7 +20,7 @@
         function callServer(tableState) {
 
             vm.loading = true;
-            vm.goto = goTo;
+            vm.goTo = goTo;
 
             var pagination = tableState.pagination;
 
