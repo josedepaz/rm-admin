@@ -20,6 +20,7 @@
         function activate() { }
 
         function save(user){
+            user.role = 'admin';
             $http.post('/rm-server-web/rs/config/user', user)
             .then(function(result){
                 console.log("Usuario creado exitosamente");
