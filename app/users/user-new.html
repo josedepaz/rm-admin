@@ -1,5 +1,5 @@
 <div class="mdl-grid demo-content">
-    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid base-class mdl-cell--12-col">
+    <div class="demo-charts mdl-color--white mdl-shadow--2dp mdl-cell mdl-grid base-class mdl-cell--8-col">
         <div class="mdl-card__title">
             <h3 class="mdl-card__title-text">Creación de Usuarios</h3>
         </div>
@@ -13,6 +13,8 @@
                                 <label>Nombre de usuario</label>
                                 <input ng-model="userDetailController.user.user">
                             </md-input-container>
+                        </div>
+                        <div layout-gt-sm="row">
                             <md-input-container class="md-block" flex-gt-sm>
                                 <label>Contraseña/label>
                                 <input ng-model="userDetailController.user.password" type="password">
