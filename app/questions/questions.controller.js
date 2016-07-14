@@ -3,10 +3,10 @@
 
     angular
         .module('app')
-        .controller('ConfigQuestionController', ConfigQuestionController);
+        .controller('ConfigQuestionsController', ConfigQuestionsController);
 
-    ConfigQuestionController.$inject = ['$http'];
-    function ConfigQuestionController($http) {
+    ConfigQuestionsController.$inject = ['$http'];
+    function ConfigQuestionsController($http) {
         var vm = this;
         
 

@@ -59,6 +59,11 @@
                 controller: 'UserDetailController',
                 controllerAs: 'userDetailController'
             })
+            .when('/questions/', {
+                templateUrl: 'questions/questions.html',
+                controller: 'ConfigQuestionsController',
+                controllerAs: 'configQuestionsCtrl'
+            })
             .when('/', {
                 templateUrl: 'home/home.html',
                 controller: 'HomeController',
