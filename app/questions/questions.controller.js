@@ -19,7 +19,7 @@
             $http.get('/rm-server-web/rs/config/question')
             .then(function(result){
                 vm.questions = result.data.filter(function(item){
-                    item.type === 'question';
+                    return item.type === 'question';
                 });
             })
             .catch(function(err){
