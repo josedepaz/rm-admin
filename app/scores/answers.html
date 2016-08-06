@@ -32,7 +32,8 @@
                                 <label class="mdl-textfield__label" for="points{{$index}}">Puntos...</label>
                                 <span class="mdl-textfield__error">Máximo 10 puntos!</span>
                             </div>
-                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)">Guardar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" ng-click="answersCtrl.savePoints(answer.id, answer)" ng-if="!answer.points">Guardar</button>
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--color" ng-click="answersCtrl.savePoints(answer.id, answer)" ng-if="answer.points">Guardar</button>
                         </form>
                         </small>
                     </div>
