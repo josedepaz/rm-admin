@@ -64,6 +64,11 @@
                 controller: 'ConfigQuestionsController',
                 controllerAs: 'configQuestionsCtrl'
             })
+            .when('/reports/', {
+                templateUrl: 'reports/reports.html',
+                controller: 'ReportsController',
+                controllerAs: 'reportsCtrl'
+            })
             .when('/', {
                 templateUrl: 'home/home.html',
                 controller: 'HomeController',
